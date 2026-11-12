@@ -1,0 +1,84 @@
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.form-grid>h2,.form-grid>.full{grid-column:1/-1}
+.form-grid label{display:grid;gap:7px;font-weight:600}
+.form-grid input,.form-grid select,.form-grid textarea{width:100%;min-width:0}
+.form-error,.form-success{padding:12px 14px;border:1px solid #d6dbe2;background:#fff}
+.form-error{color:#8f2d22;border-color:#e4b7b0}
+.form-success{color:#255c3e;border-color:#b9d8c4}
+.nav-error{margin:0 auto;max-width:1280px;padding:8px 48px}
+button:disabled{cursor:wait;opacity:.65}
+.property-link{display:block;color:inherit;text-decoration:none}
+.property-link:hover{box-shadow:0 12px 30px rgba(22,40,57,.12);transform:translateY(-2px)}
+.property-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:24px 0}
+.property-gallery .detail-image{width:100%;height:320px;object-fit:cover;margin:0}
+.video-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.video-gallery video,.portfolio-grid video{width:100%;max-height:420px;background:#162839}
+.design-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.design-card h3{margin-top:0}
+.design-images{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.design-images figure,.portfolio-grid figure{margin:0}
+.design-images img,.portfolio-grid img{display:block;width:100%;height:220px;object-fit:cover;background:#eff4ff}
+.design-images figcaption,.portfolio-grid figcaption{padding:8px 0;color:var(--muted)}
+.review,.request-row{margin:14px 0}
+.request-row{padding:14px 0;border-bottom:1px solid var(--line)}
+.request-row>span{display:block;color:var(--muted);margin:5px 0}
+.action-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.saved-property{display:grid;gap:8px;padding:14px;border:1px solid var(--line);color:var(--ink);text-decoration:none}
+.saved-property img{width:100%;height:150px;object-fit:cover}
+.service-editor{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:16px;margin:14px 0;border:1px solid var(--line)}
+.service-editor label{display:grid;gap:7px}
+.service-editor input,.service-editor select,.service-editor textarea{width:100%}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.portfolio-grid>div{display:grid;gap:8px}
+.partner-photo{width:120px;height:120px;border-radius:50%;object-fit:cover}
+.partner-logo{max-width:160px;max-height:100px;object-fit:contain;margin-left:18px}
+.media-remove-grid{display:grid;gap:8px;padding:10px}
+.media-remove-grid label{display:flex;align-items:center;gap:8px}
+.media-remove-grid input{width:auto}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(max-width:800px){.form-grid,.property-gallery,.video-gallery,.design-grid,.design-images,.service-editor{grid-template-columns:1fr}.form-grid>.full{grid-column:auto}.portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nav-error{padding:8px 20px}}
+@media(max-width:520px){.portfolio-grid{grid-template-columns:1fr}.property-gallery .detail-image{height:auto}.action-row .button{width:100%;text-align:center}}
+
+/* ── Wizard step progress bar ─────────────────────────────────────────── */
+.wizard-steps{position:relative;display:flex;justify-content:space-between;align-items:flex-start;margin:28px 0 32px;gap:0}
+.wizard-track{position:absolute;top:17px;left:0;right:0;height:2px;background:var(--line);z-index:0}
+.wizard-fill{height:100%;background:var(--bronze);transition:width .4s ease}
+.wizard-step{display:flex;flex-direction:column;align-items:center;gap:8px;z-index:1;flex:1}
+.wizard-step-dot{width:36px;height:36px;border-radius:50%;border:2px solid var(--line);background:white;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:var(--muted);transition:all .3s}
+.wizard-step.active .wizard-step-dot{border-color:var(--bronze);background:var(--bronze);color:white}
+.wizard-step.done .wizard-step-dot{border-color:var(--bronze);background:var(--bronze);color:white}
+.wizard-step span{font-size:12px;font-weight:600;color:var(--muted);text-align:center}
+.wizard-step.active span,.wizard-step.done span{color:var(--bronze)}
+
+/* ── Wizard misc ─────────────────────────────────────────────────────── */
+.wizard-section-label{font-weight:700;color:var(--navy);margin:22px 0 6px;font-size:15px}
+.wizard-step-intro{color:var(--muted);line-height:1.6;margin-bottom:20px}
+.wizard-step-hint{font-size:13px;color:var(--muted);margin-top:8px}
+.form-field-label{display:block;font-weight:600;margin-bottom:7px}
+.required-mark{color:#c0392b}
+.field-error{display:block;color:#8f2d22;font-size:13px;margin-top:4px}
+
+/* ── File drop zone ──────────────────────────────────────────────────── */
+.file-drop-zone-wrapper{margin:14px 0}
+.file-input-hidden{display:none}
+.file-drop-zone{border:2px dashed var(--line);border-radius:6px;padding:28px 24px;text-align:center;cursor:pointer;background:var(--paper);transition:border-color .2s,background .2s}
+.file-drop-zone:hover,.file-drop-zone.drag-over{border-color:var(--bronze);background:#fdf5ec}
+.file-drop-zone.has-files{border-color:#2e8c5b;background:#f2faf6}
+.file-drop-icon{font-size:28px;margin-bottom:8px}
+.file-drop-text{margin:0 0 4px;font-weight:600;color:var(--navy)}
+.file-drop-hint{margin:0;font-size:13px;color:var(--muted)}
+.file-name-list{list-style:none;margin:0;padding:0;text-align:left}
+.file-name-list li{padding:4px 0;font-size:14px;color:var(--navy);font-weight:500}
+
+/* ── Step navigation row ─────────────────────────────────────────────── */
+.step-nav{display:flex;align-items:center;gap:12px;margin-top:28px;flex-wrap:wrap}
+.step-nav-hint{flex:1;margin:0;font-size:14px;color:var(--muted)}
+.step-back{background:var(--paper);border:1px solid var(--line);color:var(--navy);font-weight:600}
+.step-back:hover{background:var(--line)}
+.step-next{margin-left:auto}
+
+/* ── auth-card label baseline (ensure consistent look) ───────────────── */
+.auth-card>label{display:block;font-weight:600;margin:14px 0}
+.auth-card>label input,.auth-card>label select,.auth-card>label textarea{display:block;width:100%;margin-top:7px}
+
+@media(max-width:600px){.wizard-step span{display:none}.wizard-step-dot{width:30px;height:30px;font-size:12px}.step-next{width:100%}.step-back{width:100%}}

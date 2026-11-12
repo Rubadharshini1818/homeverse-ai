@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: homeverse-api
+    runtime: node
+    region: singapore
+    plan: free
+    rootDir: .
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 4000
+      - key: COOKIE_SAME_SITE
+        value: none
+      - key: ACCESS_TOKEN_MINUTES
+        value: 15
+      - key: REFRESH_TOKEN_DAYS
+        value: 30
+      # Set these secret values in Render dashboard → Environment:
+      # MONGODB_URI, JWT_SECRET, FRONTEND_ORIGIN, REPLICATE_API_TOKEN

@@ -1,0 +1,2 @@
+import { Link } from 'react-router-dom'
+export default function Footer(){return <footer><div className="wrap footer-inner"><div><strong className="brand footer-brand">HomeVerse</strong><p>Excellence in Living. Your trusted partner in real estate, interiors, and home care.</p></div><div className="footer-links"><span>Legal</span><Link to="/about">Privacy Policy</Link><Link to="/contact">Terms of Service</Link><span>Resources</span><Link to="/contact">Cookie Policy</Link></div></div></footer>}

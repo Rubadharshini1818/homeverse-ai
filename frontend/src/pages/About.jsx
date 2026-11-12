@@ -1,0 +1,1 @@
+export default function About(){return <main className="wrap simple-page"><span className="eyebrow">ABOUT HOMEVERSE</span><h1>Excellence in living.</h1><p>HomeVerse brings property discovery, considered interiors, and trusted home care together in one place.</p></main>}
