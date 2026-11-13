@@ -1,4 +1,7 @@
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '/api').replace(/\/$/, '')
+const API_BASE_URL = (
+  import.meta.env.VITE_API_BASE_URL ||
+  (import.meta.env.PROD ? 'https://homeverse-ai.onrender.com/api' : '/api')
+).replace(/\/$/, '')
 
 async function send(path, options = {}) {
   const headers = new Headers(options.headers || {})

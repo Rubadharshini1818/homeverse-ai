@@ -12,12 +12,25 @@ import recordsRoutes from './routes/records.js'
 import { streamMedia } from './services/media.js'
 
 const app = express()
+function isOriginAllowed(origin) {
+  if (!origin) return true
+  const clean = origin.replace(/\/+$/, '')
+  if (config.frontendOrigins.includes(clean)) return true
+  try {
+    const url = new URL(clean)
+    if (url.hostname === 'localhost' || url.hostname === '127.0.0.1' || url.hostname.endsWith('.vercel.app')) {
+      return true
+    }
+  } catch {}
+  return false
+}
+
 app.disable('x-powered-by')
 app.set('trust proxy', config.nodeEnv === 'production' ? 1 : false)
 app.use(helmet())
 app.use(cors({
   origin(origin, callback) {
-    if (!origin || config.frontendOrigins.includes(origin)) return callback(null, true)
+    if (isOriginAllowed(origin)) return callback(null, true)
     const error = new Error('This origin is not allowed to access the HomeverseAI API.')
     error.status = 403
     return callback(error)
@@ -34,7 +47,7 @@ app.use((req, _res, next) => {
 app.use((req, res, next) => {
   if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(req.method)
     && req.headers.origin
-    && !config.frontendOrigins.includes(req.headers.origin)) {
+    && !isOriginAllowed(req.headers.origin)) {
     return res.status(403).json({ error: { message: 'This origin is not allowed to modify HomeverseAI data.' } })
   }
   return next()

@@ -25,9 +25,9 @@ if (cookieSameSite === 'none' && nodeEnv !== 'production') {
 export const config = {
   port,
   nodeEnv,
-  frontendOrigins: (process.env.FRONTEND_ORIGIN || 'http://localhost:3001')
+  frontendOrigins: (process.env.FRONTEND_ORIGIN || 'http://localhost:3001,https://homeverse-ai.vercel.app')
     .split(',')
-    .map((origin) => origin.trim())
+    .map((origin) => origin.trim().replace(/\/+$/, ''))
     .filter(Boolean),
   mongoUri: required('MONGODB_URI'),
   jwtSecret: required('JWT_SECRET', 32),
